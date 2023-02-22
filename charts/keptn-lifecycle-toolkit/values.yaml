@@ -1,0 +1,5 @@
+otelCollector:
+  url: "otel-collector:4317"
+
+deployment:
+  imagePullPolicy: Always
