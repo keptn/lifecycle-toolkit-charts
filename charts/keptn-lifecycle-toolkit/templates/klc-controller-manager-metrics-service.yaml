@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "chart.fullname" . }}-klc-controller-manager-metrics-service
+  namespace: {{ .Release.Namespace | quote }}
+  labels:
+    control-plane: controller-manager
+  {{- include "chart.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.klcControllerManagerMetricsService.type }}
+  selector:
+    control-plane: controller-manager
+  {{- include "chart.selectorLabels" . | nindent 4 }}
+  ports:
+	{{- .Values.klcControllerManagerMetricsService.ports | toYaml | nindent 2 -}}
