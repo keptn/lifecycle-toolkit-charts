@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "chart.fullname" . }}-klt-cert-manager-metrics-service
+  namespace: {{ .Release.Namespace | quote }}
+  labels:
+    app.kubernetes.io/component: kube-rbac-proxy
+    app.kubernetes.io/created-by: klt-cert-manager
+    app.kubernetes.io/part-of: klt-cert-manager
+    control-plane: klt-cert-manager
+  {{- include "chart.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.kltCertManagerMetricsService.type }}
+  selector:
+    control-plane: klt-cert-manager
+  {{- include "chart.selectorLabels" . | nindent 4 }}
+  ports:
+	{{- .Values.kltCertManagerMetricsService.ports | toYaml | nindent 2 -}}
