@@ -24,7 +24,7 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Prepare keys for signing
         env:
