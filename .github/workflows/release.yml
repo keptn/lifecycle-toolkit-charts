@@ -37,8 +37,8 @@ jobs:
           mkdir "$KEY_PATH"
           base64 -d <<< "$SIGNING_KEY_BASE64" > "$SIGNING_KEY_PATH"
           base64 -d <<< "$SIGNING_KEY_PASSPHRASE_BASE64" > "$SIGNING_KEY_PASSPHRASE_PATH"
-          echo "CR_PASSPHRASE_FILE=$SIGNING_KEY_PATH" >> "$GITHUB_ENV"
-          echo "CR_KEYRING=$SIGNING_KEY_PASSPHRASE_PATH" >> "$GITHUB_ENV"
+          echo "CR_PASSPHRASE_FILE=$SIGNING_KEY_PASSPHRASE_PATH" >> "$GITHUB_ENV"
+          echo "CR_KEYRING=$SIGNING_KEY_PATH" >> "$GITHUB_ENV"
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.5.0
