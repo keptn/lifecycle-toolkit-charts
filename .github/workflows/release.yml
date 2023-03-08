@@ -44,7 +44,5 @@ jobs:
         uses: helm/chart-releaser-action@v1.5.0
         env:
           CR_TOKEN: ${{ secrets.KEPTN_BOT_TOKEN }}
-          CR_PACKAGE_PATH: packages
-          CR_CHARTS_DIR: charts
         with:
           config: cr.yaml
