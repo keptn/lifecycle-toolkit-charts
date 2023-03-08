@@ -3,5 +3,3 @@
 sign: true
 # UID of the GPG key to use
 key: helm-signing@keptn.sh
-charts-dir: charts
-package-path: packages
