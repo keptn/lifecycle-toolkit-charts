@@ -32,6 +32,10 @@ webhooks:
       - keptn-lifecycle-toolkit-system
       - observability
       - monitoring
+    - key: kubernetes.io/metadata.name
+      operator: NotIn
+      values:
+      - '{{ .Release.Namespace }}'
   rules:
   - apiGroups:
     - ""
