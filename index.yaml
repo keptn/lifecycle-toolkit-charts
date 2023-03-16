@@ -11,6 +11,43 @@ entries:
       artifacthub.io/operator: "true"
       artifacthub.io/operatorCapabilities: Full Lifecycle
     apiVersion: v2
+    appVersion: v0.7.0
+    created: "2023-03-16T13:55:55.50576467Z"
+    description: A Helm chart for Keptn Lifecycle Toolkit, a set of tools to enable
+      cloud-native application lifecycle management
+    digest: fce353c830004a3892ad191410ef23d836121d0f9c9cfdfcc1d0a63cc6d725b4
+    home: https://keptn.sh
+    icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/keptn/icon/color/keptn-icon-color.svg
+    keywords:
+    - cloud-native
+    - lifecycle
+    - lifecycle-management
+    - application-lifecycle
+    - application-lifecycle-management
+    - orchestration
+    - keptn
+    - operator
+    - pre-deployment
+    - post-deployment
+    - evaluation
+    kubeVersion: '>= 1.24.0-0'
+    name: klt
+    sources:
+    - https://github.com/keptn/lifecycle-toolkit
+    type: application
+    urls:
+    - https://github.com/keptn/lifecycle-toolkit-charts/releases/download/klt-0.2.0/klt-0.2.0.tgz
+    version: 0.2.0
+  - annotations:
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: support
+          url: https://github.com/keptn/lifecycle-toolkit/issues/new
+        - name: community
+          url: https://slack.keptn.sh/
+      artifacthub.io/operator: "true"
+      artifacthub.io/operatorCapabilities: Full Lifecycle
+    apiVersion: v2
     appVersion: 0.5.0
     created: "2023-03-02T07:22:51.732795779Z"
     description: A Helm chart for Keptn Lifecycle Toolkit, a set of tools to enable
@@ -38,4 +75,4 @@ entries:
     urls:
     - https://github.com/keptn/lifecycle-toolkit-charts/releases/download/klt-0.1.0/klt-0.1.0.tgz
     version: 0.1.0
-generated: "2023-03-02T07:22:51.732804879Z"
+generated: "2023-03-16T13:55:55.50578087Z"
