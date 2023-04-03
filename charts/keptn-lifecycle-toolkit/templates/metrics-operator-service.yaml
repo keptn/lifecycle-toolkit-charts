@@ -4,7 +4,7 @@ metadata:
   name: {{ include "chart.fullname" . }}-metrics-operator-service
   namespace: {{ .Release.Namespace | quote }}
   labels:
-    control-plane: metrics-controller
+    control-plane: metrics-operator
   {{- include "chart.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.metricsOperatorService.type }}
