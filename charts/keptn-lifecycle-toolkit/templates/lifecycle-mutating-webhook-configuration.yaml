@@ -5,6 +5,8 @@ metadata:
   annotations:
     cert-manager.io/inject-ca-from: {{ .Release.Namespace }}/{{ include "chart.fullname" . }}-
   labels:
+    app.kubernetes.io/part-of: "keptn-lifecycle-toolkit"
+    keptn.sh/inject-cert: "true"
   {{- include "chart.labels" . | nindent 4 }}
 webhooks:
 - admissionReviewVersions:

@@ -7,7 +7,7 @@ metadata:
     app.kuberentes.io/instance: certificate-operator
     app.kubernetes.io/component: rbac
     app.kubernetes.io/created-by: certificate-operator
-    app.kubernetes.io/part-of: certificate-operator
+    app.kubernetes.io/part-of: keptn-lifecycle-toolkit
   {{- include "chart.labels" . | nindent 4 }}
 ---
 apiVersion: v1
@@ -42,7 +42,7 @@ metadata:
   labels:
     app.kubernetes.io/component: manager
     app.kubernetes.io/created-by: certificate-operator
-    app.kubernetes.io/part-of: certificate-operator
+    app.kubernetes.io/part-of: keptn-lifecycle-toolkit
     control-plane: certificate-operator
   {{- include "chart.labels" . | nindent 4 }}
 spec:
@@ -69,6 +69,10 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
+        - name: LABEL_SELECTOR_KEY
+          value: {{ .Values.certificateOperator.manager.env.labelSelectorKey | quote }}
+        - name: LABEL_SELECTOR_VALUE
+          value: {{ .Values.certificateOperator.manager.env.labelSelectorValue | quote }}
         - name: KUBERNETES_CLUSTER_DOMAIN
           value: {{ .Values.kubernetesClusterDomain }}
         image: {{ .Values.certificateOperator.manager.image.repository }}:{{ .Values.certificateOperator.manager.image.tag
@@ -134,6 +138,7 @@ metadata:
   labels:
     app.kubernetes.io/part-of: keptn-lifecycle-toolkit
     control-plane: lifecycle-operator
+    keptn.sh/inject-cert: "true"
   {{- include "chart.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.lifecycleOperator.replicas }}
@@ -170,13 +175,16 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.name
-        - name: OTEL_COLLECTOR_URL
-          value: {{ .Values.lifecycleOperator.manager.env.otelCollectorUrl | quote }}
         - name: FUNCTION_RUNNER_IMAGE
           value: {{ .Values.lifecycleOperator.manager.env.functionRunnerImage | quote }}
+        - name: OTEL_COLLECTOR_URL
+          value: {{ .Values.lifecycleOperator.manager.env.otelCollectorUrl | quote }}
         - name: KEPTN_APP_CONTROLLER_LOG_LEVEL
           value: {{ .Values.lifecycleOperator.manager.env.keptnAppControllerLogLevel | quote
             }}
+        - name: KEPTN_APP_CREATION_REQUEST_CONTROLLER_LOG_LEVEL
+          value: {{ .Values.lifecycleOperator.manager.env.keptnAppCreationRequestControllerLogLevel
+            | quote }}
         - name: KEPTN_APP_VERSION_CONTROLLER_LOG_LEVEL
           value: {{ .Values.lifecycleOperator.manager.env.keptnAppVersionControllerLogLevel
             | quote }}
@@ -281,6 +289,7 @@ metadata:
   labels:
     app.kubernetes.io/part-of: keptn-lifecycle-toolkit
     control-plane: metrics-operator
+    keptn.sh/inject-cert: "true"
   {{- include "chart.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.metricsOperator.replicas }}
@@ -340,6 +349,16 @@ spec:
           allowPrivilegeEscalation: {{ .Values.metricsOperator.manager.containerSecurityContext.allowPrivilegeEscalation
             }}
           capabilities: {{- include "tplvalues.render" (dict "value" .Values.metricsOperator.manager.containerSecurityContext.capabilities
+            "context" $) | nindent 12 }}
+          privileged: {{ .Values.metricsOperator.manager.containerSecurityContext.privileged
+            }}
+          runAsGroup: {{ .Values.metricsOperator.manager.containerSecurityContext.runAsGroup
+            }}
+          runAsNonRoot: {{ .Values.metricsOperator.manager.containerSecurityContext.runAsNonRoot
+            }}
+          runAsUser: {{ .Values.metricsOperator.manager.containerSecurityContext.runAsUser
+            }}
+          seccompProfile: {{- include "tplvalues.render" (dict "value" .Values.metricsOperator.manager.containerSecurityContext.seccompProfile
             "context" $) | nindent 12 }}
         volumeMounts:
         - mountPath: /tmp/k8s-webhook-server/serving-certs/
