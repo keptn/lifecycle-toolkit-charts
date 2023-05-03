@@ -3,10 +3,11 @@ kind: CustomResourceDefinition
 metadata:
   name: keptnevaluations.lifecycle.keptn.sh
   annotations:
-    controller-gen.kubebuilder.io/version: v0.11.3
+    controller-gen.kubebuilder.io/version: v0.11.4
   labels:
     app.kubernetes.io/part-of: keptn-lifecycle-toolkit
     crdGroup: lifecycle.keptn.sh
+    keptn.sh/inject-cert: "true"
   {{- include "chart.labels" . | nindent 4 }}
 spec:
   group: lifecycle.keptn.sh

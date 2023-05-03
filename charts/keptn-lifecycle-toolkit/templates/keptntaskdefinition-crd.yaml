@@ -3,10 +3,11 @@ kind: CustomResourceDefinition
 metadata:
   name: keptntaskdefinitions.lifecycle.keptn.sh
   annotations:
-    controller-gen.kubebuilder.io/version: v0.11.3
+    controller-gen.kubebuilder.io/version: v0.11.4
   labels:
     app.kubernetes.io/part-of: keptn-lifecycle-toolkit
     crdGroup: lifecycle.keptn.sh
+    keptn.sh/inject-cert: "true"
   {{- include "chart.labels" . | nindent 4 }}
 spec:
   group: lifecycle.keptn.sh
@@ -227,6 +228,14 @@ spec:
                         type: string
                     type: object
                 type: object
+              retries:
+                default: 10
+                format: int32
+                type: integer
+              timeout:
+                default: 5m
+                pattern: ^0|([0-9]+(\.[0-9]+)?(ns|us|µs|ms|s|m|h))+$
+                type: string
             type: object
           status:
             description: KeptnTaskDefinitionStatus defines the observed state of KeptnTaskDefinition
