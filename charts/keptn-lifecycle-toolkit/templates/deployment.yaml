@@ -158,11 +158,7 @@ spec:
     spec:
       containers:
       - args:
-        - webhook-server
         - --leader-elect
-        - --adapter-port=6443
-        - --adapter-certs-dir=/tmp/metrics-adapter/serving-certs
-        - --v=10
         command:
         - /manager
         env:
