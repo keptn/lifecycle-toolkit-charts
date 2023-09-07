@@ -3,7 +3,8 @@ kind: CustomResourceDefinition
 metadata:
   name: keptnconfigs.options.keptn.sh
   annotations:
-    controller-gen.kubebuilder.io/version: v0.12.0
+    controller-gen.kubebuilder.io/version: v0.12.1
+    cert-manager.io/inject-ca-from: '{{ .Release.Namespace }}/klt-certs'
   labels:
     app.kubernetes.io/part-of: keptn-lifecycle-toolkit
     crdGroup: lifecycle.keptn.sh
@@ -40,7 +41,11 @@ spec:
             properties:
               OTelCollectorUrl:
                 description: OTelCollectorUrl can be used to set the Open Telemetry
-                  collector that the operator should use
+                  collector that the lifecycle operator should use
+                type: string
+              cloudEventsEndpoint:
+                description: CloudEventsEndpoint can be used to set the endpoint where
+                  Cloud Events should be posted by the lifecycle operator
                 type: string
               keptnAppCreationRequestTimeoutSeconds:
                 default: 30
@@ -50,8 +55,8 @@ spec:
                 type: integer
             type: object
           status:
-            description: KeptnConfigStatus defines the observed state of KeptnConfig
-            type: object
+            description: unused field
+            type: string
         type: object
     served: true
     storage: true

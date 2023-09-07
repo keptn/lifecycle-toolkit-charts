@@ -4,6 +4,7 @@ metadata:
   name: keptnmetricsproviders.metrics.keptn.sh
   annotations:
     controller-gen.kubebuilder.io/version: v0.12.0
+    cert-manager.io/inject-ca-from: '{{ .Release.Namespace }}/klt-certs'
   labels:
     app.kubernetes.io/part-of: keptn-lifecycle-toolkit
     crdGroup: metrics.keptn.sh
@@ -65,8 +66,8 @@ spec:
             - targetServer
             type: object
           status:
-            description: KeptnMetricsProviderStatus defines the observed state of KeptnMetricsProvider
-            type: object
+            description: unused field
+            type: string
         type: object
     served: true
     storage: false
@@ -125,8 +126,8 @@ spec:
             - targetServer
             type: object
           status:
-            description: KeptnMetricsProviderStatus defines the observed state of KeptnMetricsProvider
-            type: object
+            description: unused field
+            type: string
         type: object
     served: true
     storage: true

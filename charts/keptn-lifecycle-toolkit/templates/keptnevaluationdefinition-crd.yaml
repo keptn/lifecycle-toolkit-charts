@@ -3,7 +3,8 @@ kind: CustomResourceDefinition
 metadata:
   name: keptnevaluationdefinitions.lifecycle.keptn.sh
   annotations:
-    controller-gen.kubebuilder.io/version: v0.12.0
+    controller-gen.kubebuilder.io/version: v0.12.1
+    cert-manager.io/inject-ca-from: '{{ .Release.Namespace }}/klt-certs'
   labels:
     app.kubernetes.io/part-of: keptn-lifecycle-toolkit
     crdGroup: lifecycle.keptn.sh
@@ -64,9 +65,8 @@ spec:
             - source
             type: object
           status:
-            description: KeptnEvaluationDefinitionStatus defines the observed state
-              of KeptnEvaluationDefinition
-            type: object
+            description: unused field
+            type: string
         type: object
     served: true
     storage: false
@@ -116,9 +116,8 @@ spec:
             - source
             type: object
           status:
-            description: KeptnEvaluationDefinitionStatus defines the observed state
-              of KeptnEvaluationDefinition
-            type: object
+            description: unused field
+            type: string
         type: object
     served: true
     storage: false
@@ -179,8 +178,8 @@ spec:
             - objectives
             type: object
           status:
-            description: Status describes the current state of the KeptnEvaluationDefinition.
-            type: object
+            description: unused field
+            type: string
         type: object
     served: true
     storage: true
