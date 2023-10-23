@@ -46,3 +46,4 @@ jobs:
           CR_TOKEN: ${{ secrets.KEPTN_BOT_TOKEN }}
         with:
           config: cr.yaml
+          mark_as_latest: false
