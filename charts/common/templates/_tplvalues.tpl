@@ -1,5 +1,5 @@
 {{/*
-Renders a value that contains template perhaps with scope if the scope is present.
+Renders a value that contains a template optionally with scope if the scope is present.
 Usage:
 {{ include "common.tplvalues.render" ( dict "value" .Values.path.to.the.Value "context" $ ) }}
 {{ include "common.tplvalues.render" ( dict "value" .Values.path.to.the.Value "context" $ "scope" $app ) }}
