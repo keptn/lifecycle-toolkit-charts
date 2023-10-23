@@ -18,7 +18,7 @@ Usage:
 {{- end -}}
 
 {{/*
-Merge a list of values that contains template after rendering them.
+Merge a list of values that contains a template after rendering them.
 Merge precedence is consistent with http://masterminds.github.io/sprig/dicts.html#merge-mustmerge
 Usage:
 {{ include "common.tplvalues.merge" ( dict "values" (list .Values.path.to.the.Value1 .Values.path.to.the.Value2) "context" $ ) }}
