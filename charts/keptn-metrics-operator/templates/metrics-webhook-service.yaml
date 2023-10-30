@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: metrics-webhook-service
+  namespace: {{ .Release.Namespace | quote }}
+  labels:
+{{- include "common.labels.standard" ( dict "context" . ) | nindent 4 }}
+{{- include "common.annotations" ( dict "context" . ) }}
+spec:
+  type: {{ .Values.webhookService.type }}
+  selector:
+    control-plane: metrics-operator
+  {{- include "common.selectorLabels"  ( dict "context" . )  | nindent 4 }}
+  ports:
+	{{- .Values.webhookService.ports | toYaml | nindent 2 -}}
