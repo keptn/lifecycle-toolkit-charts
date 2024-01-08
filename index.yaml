@@ -2,6 +2,15 @@ apiVersion: v1
 entries:
   common:
   - apiVersion: v2
+    created: "2024-01-08T10:35:08.603205057Z"
+    description: A Helm chart containing common templates for Keptn
+    digest: fce6b7bcb75342e69d3dd489810e9878138abd0810adedb4d35492a2e9d4d940
+    name: common
+    type: library
+    urls:
+    - https://github.com/keptn/lifecycle-toolkit-charts/releases/download/common-0.1.1/common-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
     created: "2023-10-23T13:29:35.492300454Z"
     description: A Helm chart containing common templates for Keptn
     digest: 0513f79c96d8801b12a92c1c936ebfddf4ff0bdd852cc9dee6896edfaa07e589
@@ -469,4 +478,4 @@ entries:
     urls:
     - https://github.com/keptn/lifecycle-toolkit-charts/releases/download/klt-0.1.0/klt-0.1.0.tgz
     version: 0.1.0
-generated: "2023-10-31T15:41:07.586570521Z"
+generated: "2024-01-08T10:35:08.603244691Z"
