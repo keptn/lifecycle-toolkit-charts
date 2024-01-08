@@ -71,6 +71,6 @@ Create the name of the service account to use
 {{- define "common.annotations" -}}
   {{- if or .context.Values.annotations .context.Values.global.commonAnnotations }}
   {{- $annotations := include "common.tplvalues.merge" ( dict "values" ( list .context.Values.annotations .context.Values.global.commonAnnotations ) "context" .context ) }}
-  annotations: {{- include "common.tplvalues.render" ( dict "value" $annotations "context" .context) | nindent 4 }}
+  {{- include "common.tplvalues.render" ( dict "value" $annotations "context" .context) | nindent 4 }}
   {{- end }}
 {{- end }}
