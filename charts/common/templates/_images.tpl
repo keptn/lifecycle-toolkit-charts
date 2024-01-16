@@ -51,6 +51,17 @@ Return the proper Image Registry Secret Names evaluating values as templates
     {{- end -}}
   {{- end -}}
 
+{{/* 
+  Checks for the imagePullPolicy 
+*/}}
+{{- define "common.imagePullPolicy" -}}
+  {{- if .Values.global.imagePullPolicy -}}
+    {{- .Values.global.imagePullPolicy -}}
+  {{- else -}}
+    {{- default .Values.imagePullPolicy -}}
+  {{- end -}}
+{{- end -}}
+
   {{- if (not (empty $pullSecrets)) }}
 imagePullSecrets:
     {{- range $pullSecrets | uniq }}
