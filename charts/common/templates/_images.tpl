@@ -63,10 +63,10 @@ imagePullSecrets:
 Checks for the imagePullPolicy
 */}}
 {{- define "common.imagePullPolicy" -}}
-  {{- if default .Values.imagePullPolicy -}}
-    {{- default .Values.imagePullPolicy -}}
+  {{- if .Values.imagePullPolicy -}}
+    {{- .Values.imagePullPolicy -}}
   {{- else -}}
-    {{- .Values.global.imagePullPolicy -}}
+    {{- default .Values.global.imagePullPolicy -}}
   {{- end -}}
 {{- end -}}
 
