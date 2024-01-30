@@ -66,7 +66,7 @@ Checks for the imagePullPolicy
   {{- if .Values.imagePullPolicy -}}
     {{- .Values.imagePullPolicy -}}
   {{- else -}}
-    {{- default .Values.global.imagePullPolicy -}}
+    {{- .Values.global.imagePullPolicy -}}
   {{- end -}}
 {{- end -}}
 
