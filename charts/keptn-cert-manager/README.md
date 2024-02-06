@@ -8,12 +8,13 @@ resource.
 
 ### Global parameters
 
-| Name                       | Description                                                               | Value |
-| -------------------------- | ------------------------------------------------------------------------- | ----- |
-| `global.imageRegistry`     | Global container image registry                                           | `""`  |
-| `global.imagePullSecrets`  | Global Docker registry secret names as an array                           | `[]`  |
-| `global.commonLabels`      | Common annotations to add to all Keptn resources. Evaluated as a template | `{}`  |
-| `global.commonAnnotations` | Common annotations to add to all Keptn resources. Evaluated as a template | `{}`  |
+| Name                            | Description                                                               | Value |
+| ------------------------------- | ------------------------------------------------------------------------- | ----- |
+| `global.imageRegistry`          | Global container image registry                                           | `""`  |
+| `global.imagePullSecrets`       | Global Docker registry secret names as an array                           | `[]`  |
+| `global.commonLabels`           | Common labels to add to all Keptn resources. Evaluated as a template      | `{}`  |
+| `global.commonAnnotations`      | Common annotations to add to all Keptn resources. Evaluated as a template | `{}`  |
+| `global.caInjectionAnnotations` | CA injection annotations for cert-manager.io configuration                | `{}`  |
 
 ### Keptn Certificate Operator common
 
@@ -36,7 +37,7 @@ resource.
 | `env.labelSelectorValue`   | specify the value for the label selector                                  | `true`                       |
 | `image.registry`           | specify the container registry for the certificate-operator image         | `ghcr.io`                    |
 | `image.repository`         | specify repo for manager image                                            | `keptn/certificate-operator` |
-| `image.tag`                | select tag for manager container                                          | `v1.2.0`                     |
+| `image.tag`                | select tag for manager container                                          | `v2.0.0`                     |
 | `imagePullPolicy`          | select image pull policy for manager container                            | `Always`                     |
 | `livenessProbe`            | custom RBAC proxy liveness probe                                          |                              |
 | `readinessProbe`           | custom manager readiness probe                                            |                              |
