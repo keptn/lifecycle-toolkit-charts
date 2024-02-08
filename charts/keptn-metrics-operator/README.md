@@ -13,12 +13,14 @@ Prometheus, Dynatrace, DataDog and K8s metric server...
 
 ### Global parameters
 
-| Name                       | Description                                                               | Value |
-| -------------------------- | ------------------------------------------------------------------------- | ----- |
-| `global.imageRegistry`     | Global container image registry                                           | `""`  |
-| `global.imagePullSecrets`  | Global Docker registry secret names as an array                           | `[]`  |
-| `global.commonLabels`      | Common annotations to add to all Keptn resources. Evaluated as a template | `{}`  |
-| `global.commonAnnotations` | Common annotations to add to all Keptn resources. Evaluated as a template | `{}`  |
+| Name                            | Description                                                               | Value  |
+| ------------------------------- | ------------------------------------------------------------------------- | ------ |
+| `global.certManagerEnabled`     | Enable this value to install Keptn Certificate Manager                    | `true` |
+| `global.imageRegistry`          | Global container image registry                                           | `""`   |
+| `global.imagePullSecrets`       | Global Docker registry secret names as an array                           | `[]`   |
+| `global.commonLabels`           | Common labels to add to all Keptn resources. Evaluated as a template      | `{}`   |
+| `global.commonAnnotations`      | Common annotations to add to all Keptn resources. Evaluated as a template | `{}`   |
+| `global.caInjectionAnnotations` | CA injection annotations for cert-manager.io configuration                | `{}`   |
 
 ### Keptn Metrics Operator common
 
@@ -56,6 +58,7 @@ Prometheus, Dynatrace, DataDog and K8s metric server...
 | `annotations`                          | add deployment level annotations                                                                                                                              | `{}`                |
 | `podAnnotations`                       | adds pod level annotations                                                                                                                                    | `{}`                |
 | `kubernetesClusterDomain`              | overrides cluster.local                                                                                                                                       | `cluster.local`     |
+| `customMetricsAPIService.enabled`      | enable/disable the K8s APIService installation                                                                                                                | `true`              |
 
 ### Keptn Metrics Operator controller
 
@@ -70,12 +73,11 @@ Prometheus, Dynatrace, DataDog and K8s metric server...
 | `containerSecurityContext.runAsUser`                |                                                               | `65532`                  |
 | `containerSecurityContext.seccompProfile.type`      |                                                               | `RuntimeDefault`         |
 | `env.exposeKeptnMetrics`                            | enable metrics exporter                                       | `true`                   |
-| `env.enableKeptnAnalysis`                           | enables/disables the analysis feature                         | `false`                  |
 | `env.metricsControllerLogLevel`                     | sets the log level of Metrics Controller                      | `0`                      |
 | `env.analysisControllerLogLevel`                    | sets the log level of Analysis Controller                     | `0`                      |
 | `image.registry`                                    | specify the container registry for the metrics-operator image | `ghcr.io`                |
 | `image.repository`                                  | specify registry for manager image                            | `keptn/metrics-operator` |
-| `image.tag`                                         | select tag for manager image                                  | `v0.8.3`                 |
+| `image.tag`                                         | select tag for manager image                                  | `v0.9.1`                 |
 | `imagePullPolicy`                                   | specify pull policy for manager image                         | `Always`                 |
 | `livenessProbe`                                     | custom livenessprobe for manager container                    |                          |
 | `readinessProbe`                                    | custom readinessprobe for manager container                   |                          |
