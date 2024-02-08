@@ -2,13 +2,21 @@ apiVersion: admissionregistration.k8s.io/v1
 kind: MutatingWebhookConfiguration
 metadata:
   name: lifecycle-mutating-webhook-configuration
+{{- $caAnnotations := .Values.global.caInjectionAnnotations}}
+{{- $annotations := include "common.annotations" (dict "context" .) }}
+{{- if or $caAnnotations $annotations }}
   annotations:
-    cert-manager.io/inject-ca-from: '{{ .Release.Namespace }}/keptn-certs'
+    {{- with $annotations  }}
+    {{- . -}}
+    {{- end }}
+    {{- with $caAnnotations  }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+{{- end }}
   labels:
     keptn.sh/inject-cert: "true"
-    app.kubernetes.io/part-of: "keptn-lifecycle-toolkit"
+    app.kubernetes.io/part-of: "keptn"
 {{- include "common.labels.standard" ( dict "context" . ) | nindent 4 }}
-{{- include "common.annotations" ( dict "context" . ) }}
 webhooks:
 - admissionReviewVersions:
   - v1
@@ -28,11 +36,7 @@ webhooks:
 {{- if eq (len .Values.allowedNamespaces) 0 }}
     - key: kubernetes.io/metadata.name
       operator: NotIn
-      values:
-      - cert-manager
-      - keptn-lifecycle-toolkit-system
-      - observability
-      - monitoring
+      values:  {{ .Values.deniedNamespaces | default list | toJson }}
 {{- else }}
     - key: kubernetes.io/metadata.name
       operator: In
