@@ -48,6 +48,62 @@ entries:
       artifacthub.io/operator: "true"
       artifacthub.io/operatorCapabilities: Full Lifecycle
     apiVersion: v2
+    appVersion: v0.10.0
+    created: "2024-02-08T08:49:29.745716076Z"
+    dependencies:
+    - alias: certManager
+      condition: global.certManagerEnabled
+      name: keptn-cert-manager
+      repository: https://charts.lifecycle.keptn.sh
+      version: 0.2.1
+    - alias: lifecycleOperator
+      condition: lifecycleOperator.enabled
+      name: keptn-lifecycle-operator
+      repository: https://charts.lifecycle.keptn.sh
+      version: 0.2.0
+    - alias: metricsOperator
+      condition: metricsOperator.enabled
+      name: keptn-metrics-operator
+      repository: https://charts.lifecycle.keptn.sh
+      version: 0.1.1
+    description: A Helm chart for Keptn, a set of tools to enable cloud-native application
+      lifecycle management
+    digest: 7fc6afed827afc8c2cbdaf1e2c1e394430cc1945057d8c83bca0552bfacb8a23
+    home: https://keptn.sh
+    icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/keptn/icon/color/keptn-icon-color.svg
+    keywords:
+    - cloud-native
+    - lifecycle
+    - lifecycle-management
+    - application-lifecycle
+    - application-lifecycle-management
+    - orchestration
+    - keptn
+    - operator
+    - pre-deployment
+    - post-deployment
+    - metrics
+    - analysis
+    - evaluation
+    - certificate
+    kubeVersion: '>= 1.24.0-0'
+    name: keptn
+    sources:
+    - https://github.com/keptn/lifecycle-toolkit
+    type: application
+    urls:
+    - https://github.com/keptn/lifecycle-toolkit-charts/releases/download/keptn-0.4.0/keptn-0.4.0.tgz
+    version: 0.4.0
+  - annotations:
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: support
+          url: https://github.com/keptn/lifecycle-toolkit/issues/new
+        - name: community
+          url: https://slack.keptn.sh/
+      artifacthub.io/operator: "true"
+      artifacthub.io/operatorCapabilities: Full Lifecycle
+    apiVersion: v2
     appVersion: v0.9.0
     created: "2023-10-31T15:41:07.586540421Z"
     dependencies:
@@ -598,4 +654,4 @@ entries:
     urls:
     - https://github.com/keptn/lifecycle-toolkit-charts/releases/download/klt-0.1.0/klt-0.1.0.tgz
     version: 0.1.0
-generated: "2024-02-08T08:01:22.439593465Z"
+generated: "2024-02-08T08:49:29.745758926Z"
