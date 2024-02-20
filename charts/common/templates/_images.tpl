@@ -60,18 +60,6 @@ imagePullSecrets:
 {{- end -}}
 
 {{/*
-Checks for the imagePullPolicy
-*/}}
-{{- define "common.imagePullPolicy" -}}
-  {{- if .Values.global.imagePullPolicy -}}
-    {{- .Values.global.imagePullPolicy -}}
-  {{- else -}}
-    {{- default .Values.imagePullPolicy -}}
-  {{- end -}}
-{{- end -}}
-
-
-{{/*
 Return the proper Docker Image Registry Secret Names
 */}}
 {{- define "common.images.imagePullSecrets" -}}
