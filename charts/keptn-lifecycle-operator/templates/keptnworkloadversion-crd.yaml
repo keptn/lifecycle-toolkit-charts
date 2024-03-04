@@ -502,6 +502,11 @@ spec:
                   - PostDeploymentTasks
                   - PostDeploymentEvaluations
                 type: string
+              deploymentStartTime:
+                description: DeploymentStartTime represents the start time of the
+                  deployment phase
+                format: date-time
+                type: string
               deploymentStatus:
                 default: Pending
                 description: DeploymentStatus indicates the current status of the
@@ -552,7 +557,7 @@ spec:
                     status:
                       default: Pending
                       description: KeptnState  is a string containing current Phase
-                        state  (Progressing/Succeeded/Failed/Unknown/Pending/Cancelled)
+                        state  (Progressing/Succeeded/Failed/Unknown/Pending/Deprecated/Warning)
                       type: string
                   type: object
                 type: array
@@ -585,7 +590,7 @@ spec:
                     status:
                       default: Pending
                       description: KeptnState  is a string containing current Phase
-                        state  (Progressing/Succeeded/Failed/Unknown/Pending/Cancelled)
+                        state  (Progressing/Succeeded/Failed/Unknown/Pending/Deprecated/Warning)
                       type: string
                   type: object
                 type: array
@@ -618,7 +623,7 @@ spec:
                     status:
                       default: Pending
                       description: KeptnState  is a string containing current Phase
-                        state  (Progressing/Succeeded/Failed/Unknown/Pending/Cancelled)
+                        state  (Progressing/Succeeded/Failed/Unknown/Pending/Deprecated/Warning)
                       type: string
                   type: object
                 type: array
@@ -651,7 +656,7 @@ spec:
                     status:
                       default: Pending
                       description: KeptnState  is a string containing current Phase
-                        state  (Progressing/Succeeded/Failed/Unknown/Pending/Cancelled)
+                        state  (Progressing/Succeeded/Failed/Unknown/Pending/Deprecated/Warning)
                       type: string
                   type: object
                 type: array

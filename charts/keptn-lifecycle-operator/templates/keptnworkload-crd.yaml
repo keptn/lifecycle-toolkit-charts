@@ -73,6 +73,7 @@ spec:
                   type: string
                 type: array
               resourceReference:
+                description: ResourceReference represents the parent resource of Workload
                 properties:
                   kind:
                     type: string
@@ -158,6 +159,7 @@ spec:
                   type: string
                 type: array
               resourceReference:
+                description: ResourceReference represents the parent resource of Workload
                 properties:
                   kind:
                     type: string
