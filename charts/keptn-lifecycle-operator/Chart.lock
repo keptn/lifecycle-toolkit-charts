@@ -3,4 +3,4 @@ dependencies:
   repository: https://charts.lifecycle.keptn.sh
   version: 0.1.4
 digest: sha256:16a2c2b907d0cf88de1e869c5d9d2249c9aeb6a9fd941f77c71f4f58caae7868
-generated: "2024-02-26T10:12:05.459085085Z"
+generated: "2024-03-05T07:32:06.383529+01:00"
