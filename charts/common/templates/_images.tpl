@@ -54,17 +54,10 @@ Return the proper Image Registry Secret Names evaluating values as templates
     {{- end -}}
   {{- end -}}
 
-  {{- if (not (empty $pullSecrets)) }}
+  {{- if (not (empty $pullSecrets)) -}}
 imagePullSecrets:
     {{- range $pullSecrets | uniq }}
   - name: {{ . }}
     {{- end }}
   {{- end }}
-{{- end -}}
-
-{{/*
-Return the proper Docker Image Registry Secret Names
-*/}}
-{{- define "common.images.imagePullSecrets" -}}
-{{- include "common.images.renderPullSecrets" (dict "images" list "global" .Values.global) | default list| toJson | indent 1 -}}
 {{- end -}}
