@@ -299,6 +299,36 @@ entries:
           url: https://slack.keptn.sh/
       artifacthub.io/operator: "true"
     apiVersion: v2
+    appVersion: v2.1.1
+    created: "2024-03-19T13:56:46.292554569Z"
+    dependencies:
+    - name: common
+      repository: https://charts.lifecycle.keptn.sh
+      version: 0.2.1
+    description: A Helm chart for Keptn Certificate Manager, a subproject of Keptn
+    digest: 76235ebc590a56125e66fe740b1619f210030674405e154b56a12f2367bcb09f
+    home: https://keptn.sh
+    icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/keptn/icon/color/keptn-icon-color.svg
+    keywords:
+    - cloud-native
+    - keptn
+    kubeVersion: '>= 1.24.0-0'
+    name: keptn-cert-manager
+    sources:
+    - https://github.com/keptn/lifecycle-toolkit
+    type: application
+    urls:
+    - https://github.com/keptn/lifecycle-toolkit-charts/releases/download/keptn-cert-manager-0.2.3/keptn-cert-manager-0.2.3.tgz
+    version: 0.2.3
+  - annotations:
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: support
+          url: https://github.com/keptn/lifecycle-toolkit/issues/new
+        - name: community
+          url: https://slack.keptn.sh/
+      artifacthub.io/operator: "true"
+    apiVersion: v2
     appVersion: v2.1.0
     created: "2024-03-04T13:11:56.09940117Z"
     dependencies:
@@ -967,4 +997,4 @@ entries:
     urls:
     - https://github.com/keptn/lifecycle-toolkit-charts/releases/download/klt-0.1.0/klt-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-18T10:10:22.803800812Z"
+generated: "2024-03-19T13:56:46.292626504Z"
